@@ -12,31 +12,29 @@
 
 #include LOWPASSFIR
 
+#include "samples.h"
 
-DATA out[FILTER_SIZE + 511];
-DATA readFromFile[512];
+
 
 /**
  * main.c
  */
 int main(void)
 {
-    size_t valid;
-    FILE * file1 = fopen("C:\\Users\\aluno\\Desktop\\workspace\\lab3_1\\teste.txt", "r");
-    FILE * fileOut = fopen("C:\\Users\\aluno\\Desktop\\workspace\\lab3_1\\saida.txt", "w");
-    valid = fread(readFromFile, 2, 512, file1);
-    if (!valid) {
-        printf("Erro!!!\n");
-        return 0;
+    FILE * fileOut = fopen("D:\\ferna\\Projetos\\lab3\\Lab3_Problema1\\Lab3_Problema01\\saida.txt", "w");
+    int i;
+    printf("funfa\n");
+    filter(samples, SAMPLE_SIZE, out);
+    printf("funfa\n");
+
+    for(i=0; i<FILTER_SIZE + SAMPLE_SIZE - 1; i++){
+            fprintf(fileOut, "%d, ", out[i]);
     }
-    filter(readFromFile, 512, out);
+    printf("funfa\n");
 
-    valid = fwrite(out, 2, 523, fileOut);
 
-    if (!valid) {
-        printf("Erro de escrita!");
-    }
-
+    printf("Completado!\n");
+    fclose(fileOut);
 
 	return 0;
 }
