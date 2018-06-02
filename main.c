@@ -10,7 +10,7 @@
 #define LOWPASSIIR "lowPassIir.h"
 #define BANDPASSIIR "bandPassIir.h"
 
-#include LOWPASSFIR
+#include LOWPASSIIR
 
 #include "samples.h"
 
@@ -28,8 +28,8 @@ int main(void)
     filter(samples, SAMPLE_SIZE, out);
     printf("funfa\n");
 
-    for(i=0; i<FILTER_SIZE + SAMPLE_SIZE - 1; i++){
-            fprintf(fileOut, "%d, ", out[i]);
+    for(i=0; i<SAMPLE_SIZE - 1; i++){
+            fprintf(fileOut, "%d ", 16*out[i]);
     }
     printf("funfa\n");
 

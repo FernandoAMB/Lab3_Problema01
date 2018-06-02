@@ -44,7 +44,7 @@ main.obj: C:/ti/ccsv8/tools/compiler/c5500_4.4.1/include/stdlib.h
 main.obj: C:/Users/ferna/Documents/Lab3/Lab3_Problema01/dsplib_2.40.00/include/math.h
 main.obj: C:/Users/ferna/Documents/Lab3/Lab3_Problema01/dsplib_2.40.00/include/dsplib.h
 main.obj: C:/Users/ferna/Documents/Lab3/Lab3_Problema01/dsplib_2.40.00/include/tms320.h
-main.obj: C:/Users/ferna/Documents/Lab3/Lab3_Problema01/filtros_gerados/lowPassFir.h
+main.obj: C:/Users/ferna/Documents/Lab3/Lab3_Problema01/filtros_gerados/lowPassIir.h
 main.obj: C:/Users/ferna/Documents/Lab3/Lab3_Problema01/tmwtypes.h
 main.obj: C:/ti/ccsv8/tools/compiler/c5500_4.4.1/include/limits.h
 main.obj: C:/ti/ccsv8/tools/compiler/c5500_4.4.1/include/float.h
@@ -95,7 +95,7 @@ C:/ti/ccsv8/tools/compiler/c5500_4.4.1/include/stdlib.h:
 C:/Users/ferna/Documents/Lab3/Lab3_Problema01/dsplib_2.40.00/include/math.h: 
 C:/Users/ferna/Documents/Lab3/Lab3_Problema01/dsplib_2.40.00/include/dsplib.h: 
 C:/Users/ferna/Documents/Lab3/Lab3_Problema01/dsplib_2.40.00/include/tms320.h: 
-C:/Users/ferna/Documents/Lab3/Lab3_Problema01/filtros_gerados/lowPassFir.h: 
+C:/Users/ferna/Documents/Lab3/Lab3_Problema01/filtros_gerados/lowPassIir.h: 
 C:/Users/ferna/Documents/Lab3/Lab3_Problema01/tmwtypes.h: 
 C:/ti/ccsv8/tools/compiler/c5500_4.4.1/include/limits.h: 
 C:/ti/ccsv8/tools/compiler/c5500_4.4.1/include/float.h: 

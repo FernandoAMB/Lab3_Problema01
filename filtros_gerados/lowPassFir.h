@@ -17,6 +17,7 @@
  * wstop = 0.5
  * Apass = 1
  * Astop = 100
+ * Coeficientes divididos por 4.
  */
 
 /* General type conversion for MATLAB generated C-code  */

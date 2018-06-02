@@ -15,6 +15,7 @@
 
 /* General type conversion for MATLAB generated C-code  */
 #include "tmwtypes.h"
+#define NBIQUAD 10
 /* 
  * Expected path to tmwtypes.h 
  * D:\Programas\MATLAB\extern\include\tmwtypes.h 
@@ -25,64 +26,12 @@
  *   Use the Filter Design & Analysis Tool to design accurate
  *   int16 filter coefficients.
  */
-#define MWSPT_NSEC 9
-const int NL[MWSPT_NSEC] = { 1,3,1,3,1,3,1,3,1 };
-const int16_T NUM[MWSPT_NSEC][3] = {
-  {
-     7756,      0,      0 
-  },
-  {
-    32767,  32767,  32767 
-  },
-  {
-     6083,      0,      0 
-  },
-  {
-    32767,  32767,  32767 
-  },
-  {
-     5222,      0,      0 
-  },
-  {
-    32767,  32767,  32767 
-  },
-  {
-     4850,      0,      0 
-  },
-  {
-    32767,  32767,  32767 
-  },
-  {
-    32767,      0,      0 
-  }
+DATA filtro[5*NBIQUAD] = {
+                          3514 , 7028 , 3514 , -16585 , 14256 , 3115 , 6230 , 3115 , -14702 , 10777 , 2809 , 5619 , 2809 , -13258 , 8111 , 2574 , 5148 , 2574 , -12149 , 6061 , 2394 , 4789 , 2394 , -11301 , 4494 , 2259 , 4518 , 2259 , -10662 , 3314 , 2160 , 4321 , 2160 , -10196 , 2454 , 2093 , 4187 , 2093 , -9879 , 1868 , 2054 , 4109 , 2054 , -9695 , 1528 , 5783 , 5783 , 0 , -4817 , 0
 };
-const int DL[MWSPT_NSEC] = { 1,3,1,3,1,3,1,3,1 };
-const int16_T DEN[MWSPT_NSEC][3] = {
-  {
-    32767,      0,      0 
-  },
-  {
-    32767, -24760,  23016 
-  },
-  {
-    32767,      0,      0 
-  },
-  {
-    32767, -19420,  10985 
-  },
-  {
-    32767,      0,      0 
-  },
-  {
-    32767, -16669,   4787 
-  },
-  {
-    32767,      0,      0 
-  },
-  {
-    32767, -15482,   2112 
-  },
-  {
-    32767,      0,      0 
-  }
-};
+DATA buffer[4*NBIQUAD + 1];
+
+void filter(DATA * samplesIn, ushort numSamples, DATA * out) {
+    ushort overflowFlag  = iircas51(samplesIn, filtro, out, buffer, NBIQUAD, numSamples);
+    printf("Overflow: %u \n", overflowFlag);
+}
