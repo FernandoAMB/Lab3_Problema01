@@ -8,14 +8,20 @@
  * Discrete-Time FIR Filter (real)
  * -------------------------------
  * Filter Structure  : Direct-Form FIR
- * Filter Length     : 12
+ * Filter Length     : 31
  * Stable            : Yes
  * Linear Phase      : Yes (Type 2)
+ *
+ *
+ * wpass = 0.3
+ * wstop = 0.5
+ * Apass = 1
+ * Astop = 100
  */
 
 /* General type conversion for MATLAB generated C-code  */
 #include "tmwtypes.h"
-#define FILTER_SIZE 12
+#define FILTER_SIZE 31
 /* 
  * Expected path to tmwtypes.h 
  * D:\Programas\MATLAB\extern\include\tmwtypes.h 
@@ -28,8 +34,7 @@
  */
 const int BL = FILTER_SIZE;
 DATA B[FILTER_SIZE] = {
-     -197,  -1104,  -2114,   -309,   6018,  12527,  12527,   6018,   -309,
-    -2114,  -1104,   -197
+                       1, -8, -55, -174, -332, -380, -157, 280, 545, 212, -624, -1120, -273, 2042, 4627, 5760, 4627, 2042, -273, -1120, -624, 212, 545, 280, -157, -380, -332, -174, -55, -8, 1
 };
 
 DATA buffer[FILTER_SIZE + 2];

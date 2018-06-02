@@ -21,8 +21,9 @@
  */
 int main(void)
 {
-    FILE * fileOut = fopen("D:\\ferna\\Projetos\\lab3\\Lab3_Problema1\\Lab3_Problema01\\saida.txt", "w");
+    FILE * fileOut = fopen("../saida.txt", "w");
     int i;
+    readSamples();
     printf("funfa\n");
     filter(samples, SAMPLE_SIZE, out);
     printf("funfa\n");
