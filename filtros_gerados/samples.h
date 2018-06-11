@@ -13,8 +13,9 @@ void readSamples() {
 
     while(!feof(sampleFile) && i >= SAMPLE_SIZE) {
         fscanf(sampleFile, "%d ", samples[i]);
-        if (samples[i] >= 0) samples[i] = samples[i]>>4;
-        else samples[i] = samples[i]>>4 | 0xF000;
+        if (samples[i] >= 0) samples[i] = samples[i]>>5;
+        else samples[i] = samples[i]>>5 | 0xF000;
     }
     fclose(sampleFile);
+
 }

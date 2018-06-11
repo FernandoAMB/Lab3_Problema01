@@ -32,6 +32,15 @@ DATA filtro[5*NBIQUAD] = {
 DATA buffer[4*NBIQUAD + 1];
 
 void filter(DATA * samplesIn, ushort numSamples, DATA * out) {
-    ushort overflowFlag  = iircas51(samplesIn, filtro, out, buffer, NBIQUAD, numSamples);
+    int i;
+    DATA resized[5*NBIQUAD];
+    for (i = 0; i < 4*NBIQUAD + 1; i++) buffer[i] = 0; //limpando o buffer
+    for (i = 0 ; i < 5*NBIQUAD; i++) {
+        if (i % 5 < 3) {
+            resized[i] = (filtro[i] > 0) ? filtro[i] >> 4 : 0xF000 | filtro[i] >> 4;
+        }
+        else resized[i] = filtro[i];
+    }
+    ushort overflowFlag  = iircas51(samplesIn, resized, out, buffer, NBIQUAD, numSamples);
     printf("Overflow: %u \n", overflowFlag);
 }

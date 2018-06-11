@@ -39,6 +39,8 @@ DATA buffer[FILTER_SIZE + 2];
 
 
 void filter(DATA * samplesIn, ushort numSamples, DATA * out) {
+    int i;
+    for (i = 0; i < FILTER_SIZE + 2; i++) buffer[i] = 0; //limpando o buffer
     ushort overflowFlag = fir (samplesIn, B, out, buffer, numSamples, BL);
     printf("\n\Overflow: %u\n", overflowFlag);
 }

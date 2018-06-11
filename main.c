@@ -29,7 +29,7 @@ int main(void)
     printf("funfa\n");
 
     for(i=0; i<SAMPLE_SIZE - 1; i++){
-            fprintf(fileOut, "%d ", 16*out[i]);
+            fprintf(fileOut, "%d ", out[i]);
     }
     printf("funfa\n");
 

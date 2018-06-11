@@ -1,10 +1,6 @@
-clear
-close
-clc
+file = fopen('sinal.txt', 'w');
 
-file = fopen('sinal.txt', 'a+');
-
-sinal = (sin([0:0.05:51.15]) + sin(0:0.5:511.5) + cos(0:0.7:716.1))/3;
+sinal = (sin([0:0.05:51.15]) + sin(0:0.5:511.5) + cos(0:0.7:716.1) + cos(0:2:2046) + cos(0:7:7161) + cos(0:50:50*1023))/6;
 plot(sinal);
 figure();
 freqz(sinal);
